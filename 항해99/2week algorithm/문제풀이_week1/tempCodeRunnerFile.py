@@ -1,1 +1,0 @@
-common_min = max(ct1 & ct2)  # 1 2 3 6
