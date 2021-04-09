@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.socket.io/socket.io-3.0.1.min.js"></script>
+    <title>Hello Socket.io!</title>
+  </head>
+  <body>
+    <script>    // 프론트엔드에서 socket.io 를 사용할 수 있도록 script 태그로
+                // socket.io 파일을 불러와 서버에 연결하는 코드
+      const socket = io("ws://localhost:3000");
+      socket.on("connect", () => {
+        socket.send("Hello!");
+      });
+
+      socket.on("message", (data) => {
+        console.log(data);
+      });
+
+    socket.on("customEventName", (data) => {
+        console.log("커스텀이벤트네임 : ", data);
+    });
+
+    </script>
+  </body>
+</html>
